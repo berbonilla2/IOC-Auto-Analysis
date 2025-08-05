@@ -1,0 +1,64 @@
+How to Run VirusTotal IoC Scanner
+
+Prerequisites
+- Windows 10/11 with PowerShell 5.1 or higher
+- Internet connection
+- VirusTotal API keys (multiple keys recommended for rate limiting)
+- AbuseIPDB API key (optional, for IP reputation data)
+
+Setup
+
+1. Configure API Keys
+   - Open api_keys.txt
+   - Add your VirusTotal API keys (one per line)
+   - Add your AbuseIPDB API key on the last line
+   - Format example:
+     # VirusTotal API Keys
+     your_vt_key_1
+     your_vt_key_2
+     your_vt_key_3
+     # AbuseIPDB API Key
+     your_abuseipdb_key
+
+2. Prepare IoC Input
+   - Open ioc_input.csv
+   - Add IoCs in the "IoCs" column (one per row)
+   - Supported IoC types:
+     * IP addresses (e.g., 192.168.1.1)
+     * Domains (e.g., example.com)
+     * URLs (e.g., https://example.com/path)
+     * File hashes (MD5, SHA1, SHA256)
+     * Email addresses (will be skipped with warning)
+   - Save the file
+
+3. Run the Scanner
+   - Double-click run_scanner.bat
+   - The script will:
+     * Validate prerequisites
+     * Process each IoC through VirusTotal API
+     * Query AbuseIPDB for IP addresses
+     * Display progress bar
+     * Generate output files
+
+Output Files (in results/ folder)
+- results/json/virustotal_results.json - Raw VirusTotal API responses
+- results/csvs/virustotal_results.csv - Formatted VirusTotal data
+- results/json/abuseipdb_results.json - Raw AbuseIPDB responses (IPs only)
+- results/csvs/abuseipdb_results.csv - Formatted AbuseIPDB data (IPs only)
+- debug_log.txt - Detailed scan logs and errors
+- scan_progress.txt - Progress tracking (auto-deleted)
+
+Features
+- Automatic IoC type detection
+- Multiple API key rotation for rate limiting
+- Progress tracking with visual bar
+- Error handling and logging
+- CSV and JSON output formats
+- AbuseIPDB integration for IP reputation
+
+Notes
+- Rate limiting: 4 requests per key before rotation
+- 2-second delay between requests
+- Email IoCs are skipped (not supported by VT API)
+- Invalid IoCs are logged and skipped
+- Results are organized in results/ subdirectories 
