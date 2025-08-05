@@ -1,4 +1,4 @@
-How to Run VirusTotal IoC Scanner
+How to Run IOC Auto Analysis
 
 Prerequisites
 - Windows 10/11 with PowerShell 5.1 or higher
@@ -61,4 +61,5 @@ Notes
 - 2-second delay between requests
 - Email IoCs are skipped (not supported by VT API)
 - Invalid IoCs are logged and skipped
+
 - Results are organized in results/ subdirectories 
