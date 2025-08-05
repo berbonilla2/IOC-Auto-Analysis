@@ -1,4 +1,4 @@
-# Meralco Automation - VirusTotal IoC Scanner
+# IoC Automation - IoC Scanner
 
 A comprehensive PowerShell-based tool for bulk scanning of Indicators of Compromise (IoCs) through VirusTotal and AbuseIPDB APIs. This automation tool is designed for security analysts and threat hunters who need to process large volumes of IoCs efficiently.
 
@@ -238,5 +238,6 @@ This project is designed for internal security operations. Please ensure complia
 - **Specify environment details**
 
 ---
+
 
 **Note**: This tool is designed for legitimate security research and threat hunting. Ensure all usage complies with applicable laws and terms of service. 
